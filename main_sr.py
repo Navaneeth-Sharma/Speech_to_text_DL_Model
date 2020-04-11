@@ -1,15 +1,14 @@
 import os
 import numpy as np 
 import matplotlib.pyplot as plt 
-from glob import glob
 
 import librosa
 from preprocess import *
 
 import keras
-from keras.layers import Dense, Dropout, Flatten, Conv1D, Input, MaxPooling1D, GRU, Bidirectional
+from keras.layers import Dense, Dropout, Flatten, Conv1D, Input, MaxPooling1D
 from keras.models import Model
-from keras import regularizers
+from keras import regularizers # you may use regularizers for better model
 from keras import layers
 from keras.callbacks import EarlyStopping, ModelCheckpoint
 from keras import backend as K
@@ -50,7 +49,7 @@ def bulid_model():
 
 	return model
 
-
+# K-Fold method
 k=3
 num_val_samples = len(x_train)//k
 num_val_samples2 = len(y_train)//k
@@ -77,6 +76,7 @@ for i in range(k):
 
 	history=model.fit(partial_x_train, partial_y_train ,epochs=30,callbacks=[es,mc],batch_size=1, validation_data=(x_val,y_val))
 
+# The function for better visualiztion
 def smoothed_curve(points,factor=0.8):
 	smothed_points = []
 	for point in points:
