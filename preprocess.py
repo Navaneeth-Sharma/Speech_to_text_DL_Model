@@ -1,13 +1,8 @@
 import os
 import numpy as np 
-import matplotlib.pyplot as plt 
-from glob import glob
-from scipy.io import wavfile
-
 import librosa
-from python_speech_features import mfcc 
- 
-data_dir = '.../train/audio_/'
+
+data_dir = '.../train/audio/'
 
 
 a = os.listdir(data_dir)
