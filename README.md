@@ -13,3 +13,6 @@ I got around 96.5% of training accuracy and around 85% of validation accuracy.Si
 
 
 The required packeges are Librosa,matplotlib,numpy,'keras'.
+
+
+If any queries or any problem please inform me.I will try to solve
