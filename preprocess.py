@@ -4,7 +4,6 @@ import librosa
 
 data_dir = '.../train/audio/'
 
-
 a = os.listdir(data_dir)
 print(a)
 
@@ -18,13 +17,9 @@ for j in audio_files:
 	list_dirs = os.listdir(folder_dir)
 
 	for k in list_dirs:
-
 		samples ,sample_rate= librosa.load(folder_dir+'/'+str(k),16000)
-
 		time = np.arange(0,len(samples))/sample_rate
-
-		
-			# croping the audio
+		# croping the audio
 		def cut(data, freq, start, end):
 			end = int(end*freq)
 			if end > len(data):
@@ -46,7 +41,6 @@ classes = list(lab_enc.classes_)
 
 from keras.utils import to_categorical
 y = to_categorical(y,num_classes=len(a))
-
 
 all_wave = np.array(all_wave).reshape(-1,8000,1)
 
